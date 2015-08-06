@@ -1,0 +1,107 @@
+
+Accordian Menu, show & hide
+
+
+<ul id="rightnav" class="rtnav nav">
+    <li class="sectionhome currentPage">
+        <div>
+        <a class="Homelink" href="#" target="">HOME</a>
+        </div>
+    </li>
+    <li class="currentPage">
+    	<a>Heading 1</a>
+            <ul style="display: none;">
+            <li>
+            <a href="#">heading 1.a</a>
+            </li>
+            <li>
+            <a href="#">heading 1.b</a>
+            </li>
+            </ul>
+    </li>
+    <li class="currentPage">
+    	<a>Heading 2</a>
+            <ul>
+            <li>
+            <a href="#">heading 2.a</a>
+            </li>
+            <li>
+            <a href="#">heading2.b</a>
+            </li>
+            </ul>
+    </li>
+    <li class="currentPage">
+    	<a>Heading 3</a>
+            <ul>
+            <li>
+            <a href="#">heading 3.a</a>
+            </li>
+            <li>
+            <a href="#">heading 3.b</a>
+            </li>
+            <li>
+            <a href="#">heading 3.c</a>
+            </li>
+            <li>
+            <a href="#">heading 3.d</a>
+            </li>
+        	</ul>
+    </li>
+</ul>
+            
+
+
+<style>
+/* css to change */
+ul.nav li ul{
+	display: none;
+}
+
+ul.nav li.stl-active ul {
+    display: block !important;
+}
+
+/* if installed on multiple pages, a good example of active page styles, requires JS below */
+/* menu formatting based on which page it active */
+ul.nav li.active ul.active li.active {
+	background-color: #ebf0f5 !important;
+  	border-bottom: 1px solid #dcdcdc;
+  	border-top: 2px solid #869bc1;
+  	font-weight: bold;
+  	width: 120%;
+  	position: relative;
+  	left:-21px;
+  	padding-left: 20px;
+}
+ul.nav li.active ul.active li.active a {
+	background-color: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+    font-weight: bold;
+	padding: 6px 0 8px !important;
+	color: #333;
+}
+</style>
+
+<script>
+/* javascript show hide */
+$("ul.nav li a").click(function(){
+   var nextUl = $(this).next("ul");
+     $(nextUl).toggle();
+});
+
+/* example of page location recognition */
+/* add active class to navigation */
+$("ul#rightnav li ul li a").each(function()
+{
+   	var path = $(this).attr("href");
+	if(window.location.pathname.match(path))
+			{		
+		$(this).parent().addClass("active");
+         $(this).parents().addClass("active");
+         $(this).addClass("active");
+			}
+});
+
+</script>
+
