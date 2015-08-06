@@ -1,7 +1,7 @@
 
 Accordian Menu, show & hide
 
-
+<!-- HTML -->
 <ul id="rightnav" class="rtnav nav">
     <li class="sectionhome currentPage">
         <div>
@@ -52,17 +52,21 @@ Accordian Menu, show & hide
 
 
 <style>
-/* css to change */
+/* css for show / hide */
+/* the show/ hide is handled by the JS toggle below, 
+css only sets the begining state, here is hidden */
 ul.nav li ul{
 	display: none;
 }
 
-ul.nav li.stl-active ul {
-    display: block !important;
+/* insures the active page name list container is open*/ 
+ul.nav li.active ul {
+    	display: block !important;
 }
 
 /* if installed on multiple pages, a good example of active page styles, requires JS below */
 /* menu formatting based on which page it active */
+/* style for the list area */
 ul.nav li.active ul.active li.active {
 	background-color: #ebf0f5 !important;
   	border-bottom: 1px solid #dcdcdc;
@@ -73,24 +77,28 @@ ul.nav li.active ul.active li.active {
   	left:-21px;
   	padding-left: 20px;
 }
+
+/* style for the list link */
 ul.nav li.active ul.active li.active a {
 	background-color: none !important;
-    border-bottom: none !important;
-    box-shadow: none !important;
-    font-weight: bold;
+    	border-bottom: none !important;
+    	box-shadow: none !important;
+    	font-weight: bold;
 	padding: 6px 0 8px !important;
 	color: #333;
 }
+
 </style>
 
 <script>
 /* javascript show hide */
+/* toggle changes the display properties (block to hidden) as inline CSS */
 $("ul.nav li a").click(function(){
    var nextUl = $(this).next("ul");
      $(nextUl).toggle();
 });
 
-/* example of page location recognition */
+/* active page recognition */
 /* add active class to navigation */
 $("ul#rightnav li ul li a").each(function()
 {
