@@ -91,7 +91,9 @@ ul.nav li.active ul.active li.active a {
 </style>
 
 <script>
-/* javascript show hide */
+/* javascript show hide using jquery toggle */
+/* jquery library include */
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="   crossorigin="anonymous"></script>
 /* toggle changes the display properties (block to hidden) as inline CSS */
 $("ul.nav li a").click(function(){
    var nextUl = $(this).next("ul");
